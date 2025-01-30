@@ -1,12 +1,11 @@
-import 'tsconfig-paths/register';
 import express from 'express';
-import { json } from 'body-parser';
+import bodyParser from 'body-parser';
 import { Sequelize } from 'sequelize';
 import dotenv from 'dotenv';
 import cors from 'cors';
 dotenv.config();
 const app = express();
-app.use(json());
+app.use(bodyParser.json());
 app.use(cors());
 // Database connection
 const sequelize = new Sequelize(process.env.DB_NAME || 'grocery_db', process.env.DB_USER || 'user', process.env.DB_PASSWORD || 'password', {
